@@ -41,8 +41,8 @@ import java.util.concurrent.ThreadPoolExecutor;
 /**
  * 图表接口
  *
-
  */
+
 @RestController
 @RequestMapping("/chart")
 @Slf4j
@@ -76,6 +76,7 @@ public class ChartController {
      * @param request
      * @return
      */
+
     @PostMapping("/add")
     public BaseResponse<Long> addChart(@RequestBody ChartAddRequest chartAddRequest, HttpServletRequest request) {
         if (chartAddRequest == null) {

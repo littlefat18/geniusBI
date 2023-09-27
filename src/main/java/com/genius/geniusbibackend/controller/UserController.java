@@ -201,6 +201,7 @@ public class UserController {
     public BaseResponse<UserVO> getUserVOById(long id, HttpServletRequest request) {
         BaseResponse<User> response = getUserById(id, request);
         User user = response.getData();
+        log.info("/get/vo 方法被调用");
         return ResultUtils.success(userService.getUserVO(user));
     }
 
