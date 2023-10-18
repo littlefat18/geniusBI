@@ -311,7 +311,7 @@ public class ChartController {
         chart.setGenChart(genChart);
         chart.setGenResult(genResult);
         chart.setUserId(loginUser.getId());
-        chart.setStatus("succeed");
+        chart.setStatus(STATUS_SUCCEED);
         boolean saveResult = chartService.save(chart);
         ThrowUtils.throwIf(!saveResult, ErrorCode.SYSTEM_ERROR, "图表保存失败");
         BiResponse biResponse = new BiResponse();
@@ -423,7 +423,7 @@ public class ChartController {
             updateChartResult.setGenChart(genChart);
             updateChartResult.setGenResult(genResult);
             // todo 建议定义状态为枚举值
-            updateChartResult.setStatus("succeed");
+            updateChartResult.setStatus(STATUS_SUCCEED);
             boolean updateResult = chartService.updateById(updateChartResult);
             if (!updateResult) {
                 handleChartUpdateError(chart.getId(), "更新图表成功状态失败");

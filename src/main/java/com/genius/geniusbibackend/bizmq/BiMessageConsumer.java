@@ -16,6 +16,10 @@ import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+import static com.genius.geniusbibackend.constant.ChartConstant.STATUS_SUCCEED;
 
 @Component
 @Slf4j
@@ -68,7 +72,7 @@ public class BiMessageConsumer {
         updateChartResult.setGenChart(genChart);
         updateChartResult.setGenResult(genResult);
         // todo 建议定义状态为枚举值
-        updateChartResult.setStatus("succeed");
+        updateChartResult.setStatus(STATUS_SUCCEED);
         boolean updateResult = chartService.updateById(updateChartResult);
         if (!updateResult) {
             channel.basicNack(deliveryTag, false, false);
